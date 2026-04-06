@@ -16,6 +16,8 @@ import practico1.Triangulo;
 import practico1.Validador;
 import practico2.Persona2;
 import practico2.CuentaCorriente;
+import practico2.Producto;
+import practico2.Compra;
 
 public class Main {
 
@@ -40,6 +42,9 @@ public class Main {
             System.out.println("13. Fibonacci y FooBarBaz");
             System.out.println("14. Banco y Cliente");
             System.out.println("15. Respuesta ejercicio teorico");
+            System.out.println("16. Persona2 (practico 2)");
+            System.out.println("17. Cuenta corriente (practico 2)");
+            System.out.println("18. Cliente, Producto y Compra (practico 2)");
             System.out.println("0. Salir");
             System.out.print("Seleccione ejercicio: ");
             opcion = leer.nextInt();
@@ -155,7 +160,48 @@ public class Main {
                     Cuenta1.setNumerodeCuenta(12341234); Cuenta1.setNombreCliente("pedrito"); Cuenta1.setDineroDepositadoCliente(100000); Cuenta1.setDineroDeudaCliente(120000);
                     
                     System.out.println("Su saldo es:" + Cuenta1.calcularSaldo());
-                    
+                    break;
+                case 18:
+                    Producto prodEj1 = new Producto(1, "Arroz 1kg", 120.0);
+                    Producto prodEj2 = new Producto(2, "Aceite 900cc", 450.0);
+                    System.out.println("Catalogo de ejemplo: ID " + prodEj1.getIDProducto()
+                            + " " + prodEj1.getNombre() + " $" + prodEj1.getPrecio()
+                            + " | ID " + prodEj2.getIDProducto()
+                            + " " + prodEj2.getNombre() + " $" + prodEj2.getPrecio());
+                    System.out.print("DNI del cliente: ");
+                    int dniCli = leer.nextInt();
+                    leer.nextLine();
+                    System.out.print("Nombre del cliente: ");
+                    String nombreCli = leer.nextLine();
+                    practico2.Cliente cliCompra = new practico2.Cliente(dniCli, nombreCli);
+                    System.out.print("Fecha de la compra (ej: 06/04/2026): ");
+                    String fechaCompra = leer.nextLine();
+                    Compra unaCompra = new Compra(cliCompra, fechaCompra);
+                    int idProd;
+                    do {
+                        System.out.print("ID producto a agregar (-1 para listar y terminar): ");
+                        idProd = leer.nextInt();
+                        if (idProd == -1) {
+                            break;
+                        }
+                        System.out.print("Cantidad (0 = una unidad por defecto): ");
+                        int cantProd = leer.nextInt();
+                        if (cantProd == 0) {
+                            unaCompra.agregarProducto(idProd);
+                        } else {
+                            unaCompra.agregarProducto(idProd, cantProd);
+                        }
+                    } while (true);
+                    System.out.println("--- Resumen compra ---");
+                    System.out.println("Cliente: " + unaCompra.getClienteDeLaCompra().getNombre()
+                            + " DNI: " + unaCompra.getClienteDeLaCompra().getDNI());
+                    System.out.println("Fecha: " + unaCompra.getFecha());
+                    for (int i = 0; i < unaCompra.getCantidadDeLineas(); i++) {
+                        System.out.println("  Linea " + (i + 1) + ": ID producto "
+                                + unaCompra.obtenerIDProductoEnLinea(i)
+                                + " cantidad " + unaCompra.obtenerCantidadEnLinea(i));
+                    }
+                    break;
                 case 0:
                     System.out.println("Saliendo...");
                     break;
