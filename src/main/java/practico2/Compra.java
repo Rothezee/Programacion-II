@@ -4,74 +4,35 @@
  */
 package practico2;
 
-/**
- *
- * @author Usuario
- */
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Compra {
+    private int idCliente;
+    private LocalDate fecha;
     
-    private static final int MAXIMO_DE_LINEAS = 50;
-    
-    private Cliente ClienteDeLaCompra;
-    private String Fecha;
-    private int[] ArregloIDProducto;
-    private int[] ArregloCantidad;
-    private int CantidadDeLineas;
-    
-    public Compra(Cliente ClienteDeLaCompra, String Fecha) {
-        this.ClienteDeLaCompra = ClienteDeLaCompra;
-        this.Fecha = Fecha;
-        this.ArregloIDProducto = new int[MAXIMO_DE_LINEAS];
-        this.ArregloCantidad = new int[MAXIMO_DE_LINEAS];
-        this.CantidadDeLineas = 0;
+    // Key: ID del Producto, Value: Cantidad
+    private Map<Integer, Integer> productos;
+
+    public Compra(int idCliente, LocalDate fecha) {
+        this.idCliente = idCliente;
+        this.fecha = fecha;
+        this.productos = new HashMap<>();
     }
-    
-    public void agregarProducto(int IDProducto, int cantidad) {
-        if (this.CantidadDeLineas >= MAXIMO_DE_LINEAS) {
-            return;
-        }
-        if (cantidad <= 0) {
-            return;
-        }
-        this.ArregloIDProducto[this.CantidadDeLineas] = IDProducto;
-        this.ArregloCantidad[this.CantidadDeLineas] = cantidad;
-        this.CantidadDeLineas = this.CantidadDeLineas + 1;
+
+    // Método principal: Maneja la lógica de suma
+    public void agregarProducto(int idProducto, int cantidad) {
+        // getOrDefault es clave: si el producto ya estaba, suma a la cantidad vieja.
+        // Si no estaba, arranca en 0 y suma la nueva cantidad.
+        int cantidadActual = productos.getOrDefault(idProducto, 0);
+        productos.put(idProducto, cantidadActual + cantidad);
+        
+        System.out.println("ID " + idProducto + ": ahora tenés " + (cantidadActual + cantidad) + " unidades.");
     }
-    
-    /**
-     * Misma operacion que la otra, con cantidad por defecto = 1.
-     */
-    public void agregarProducto(int IDProducto) {
-        this.agregarProducto(IDProducto, 1);
-    }
-    
-    public Cliente getClienteDeLaCompra() {
-        return this.ClienteDeLaCompra;
-    }
-    
-    public String getFecha() {
-        return this.Fecha;
-    }
-    
-    public int getCantidadDeLineas() {
-        return this.CantidadDeLineas;
-    }
-    
-    public int obtenerIDProductoEnLinea(int indice) {
-        return this.ArregloIDProducto[indice];
-    }
-    
-    public int obtenerCantidadEnLinea(int indice) {
-        return this.ArregloCantidad[indice];
-    }
-    
-    /*==============Generadodes de atributos===============*/
-    
-    public void setClienteDeLaCompra(Cliente ClienteDeLaCompra) {
-        this.ClienteDeLaCompra = ClienteDeLaCompra;
-    }
-    
-    public void setFecha(String Fecha) {
-        this.Fecha = Fecha;
+
+    // Sobrecarga: El valor por defecto llama al método de arriba
+    public void agregarProducto(int idProducto) {
+        this.agregarProducto(idProducto, 1);
     }
 }
