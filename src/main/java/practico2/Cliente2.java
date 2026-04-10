@@ -8,14 +8,14 @@ package practico2;
  *
  * @author Usuario
  */
-public class Cliente {
+public class Cliente2 {
     private int DNI;
     private String Nombre;
     
-    public Cliente() {
+    public Cliente2() {
     }
     
-    public Cliente(int DNI, String Nombre) {
+    public Cliente2(int DNI, String Nombre) {
         this.DNI = DNI;
         this.Nombre = Nombre;
     }

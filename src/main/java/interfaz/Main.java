@@ -17,7 +17,12 @@ import practico1.Validador;
 import practico2.Persona2;
 import practico2.CuentaCorriente;
 import practico2.Producto;
-import practico2.Compra;
+import practico2.Cliente2;
+import practico2.Kiosco;
+import practico2.Roedor;
+import practico2.Raton;
+import practico2.Gerbil;
+import practico2.Hamster;
 
 public class Main {
 
@@ -45,6 +50,7 @@ public class Main {
             System.out.println("16. Persona2 (practico 2)");
             System.out.println("17. Cuenta corriente (practico 2)");
             System.out.println("18. Cliente, Producto y Compra (practico 2)");
+            System.out.println("19. Jerarquia Roedor: Raton, Gerbil, Hamster (practico 2)");
             System.out.println("0. Salir");
             System.out.print("Seleccione ejercicio: ");
             opcion = leer.nextInt();
@@ -162,44 +168,92 @@ public class Main {
                     System.out.println("Su saldo es:" + Cuenta1.calcularSaldo());
                     break;
                 case 18:
-                    Producto prodEj1 = new Producto(1, "Arroz 1kg", 120.0);
-                    Producto prodEj2 = new Producto(2, "Aceite 900cc", 450.0);
-                    System.out.println("Catalogo de ejemplo: ID " + prodEj1.getIDProducto()
-                            + " " + prodEj1.getNombre() + " $" + prodEj1.getPrecio()
-                            + " | ID " + prodEj2.getIDProducto()
-                            + " " + prodEj2.getNombre() + " $" + prodEj2.getPrecio());
-                    System.out.print("DNI del cliente: ");
-                    int dniCli = leer.nextInt();
                     leer.nextLine();
-                    System.out.print("Nombre del cliente: ");
-                    String nombreCli = leer.nextLine();
-                    practico2.Cliente cliCompra = new practico2.Cliente(dniCli, nombreCli);
-                    System.out.print("Fecha de la compra (ej: 06/04/2026): ");
-                    String fechaCompra = leer.nextLine();
-                    Compra unaCompra = new Compra(cliCompra, fechaCompra);
-                    int idProd;
+                    Kiosco maxi = new Kiosco();
+                    int opcionKiosco;
                     do {
-                        System.out.print("ID producto a agregar (-1 para listar y terminar): ");
-                        idProd = leer.nextInt();
-                        if (idProd == -1) {
-                            break;
+                        System.out.println("==================================");
+                        System.out.println("============   MENU ==============");
+                        System.out.println("==================================");
+                        System.out.println("1. Crear Cliente");
+                        System.out.println("2. Añadir producto");
+                        System.out.println("3. Crear Compra");
+                        System.out.println("4. Borrar cliente");
+                        System.out.println("5. Borrar Producto");
+                        System.out.println("6. Borrar Compra");
+                        System.out.println("7. Monto total de Compra");
+                        System.out.println("8. Monto total de Cliente");
+                        System.out.println("9. Monto total");
+                        System.out.println("0. Volver al menu principal");
+                        System.out.print("Opcion: ");
+                        opcionKiosco = leer.nextInt();
+                        leer.nextLine();
+                        switch (opcionKiosco) {
+
+                            case 1:
+                                System.out.println("Nombre del cliente: ");
+                                String Nombre = leer.nextLine();
+                                System.out.println("DNI o ID del cliente: ");
+                                int id = leer.nextInt();
+                                leer.nextLine();
+                                Cliente2 cliente = new Cliente2(id, Nombre);
+                                maxi.agregarCliente(cliente);
+                                break;
+
+                            case 2:
+                                System.out.println("Nombre del producto: ");
+                                Nombre = leer.nextLine();
+                                System.out.println("ID del producto: ");
+                                id = leer.nextInt();
+                                leer.nextLine();
+                                System.out.println("Precio del producto: ");
+                                float precio = leer.nextFloat();
+                                Producto producto = new Producto(id, Nombre, precio);
+                                maxi.agregarProducto(producto);
+                                break;
+
+                            case 3:
+                                System.out.println("==================================");
+                                System.out.println("============  CLIENTES ===========");
+                                System.out.println("==================================");
+                                for (Cliente2 cli : maxi.getClientes()) {
+                                    System.out.println(cli.getNombre() + " - " + cli.getDNI());
+                                }
+                                System.out.println("==================================");
+                                System.out.println("Elegir Cliente: ");
+                                int idCliente = leer.nextInt();
+                                leer.nextLine();
+                                Cliente2 cli = maxi.getClientes(idCliente);
+                                if (cli != null) {
+                                    System.out.println("Cliente encontrado: " + cli.getNombre());
+                                    maxi.borrarCliente(cli);
+                                    System.out.println("Cliente borrado correctamente");
+                                } else {
+                                    System.out.println("Cliente no encontrado");
+                                }
+                                break;
+                            case 0:
+                                break;
+                            default:
+                                System.out.println("Opcion no implementada.");
                         }
-                        System.out.print("Cantidad (0 = una unidad por defecto): ");
-                        int cantProd = leer.nextInt();
-                        if (cantProd == 0) {
-                            unaCompra.agregarProducto(idProd);
-                        } else {
-                            unaCompra.agregarProducto(idProd, cantProd);
-                        }
-                    } while (true);
-                    System.out.println("--- Resumen compra ---");
-                    System.out.println("Cliente: " + unaCompra.getClienteDeLaCompra().getNombre()
-                            + " DNI: " + unaCompra.getClienteDeLaCompra().getDNI());
-                    System.out.println("Fecha: " + unaCompra.getFecha());
-                    for (int i = 0; i < unaCompra.getCantidadDeLineas(); i++) {
-                        System.out.println("  Linea " + (i + 1) + ": ID producto "
-                                + unaCompra.obtenerIDProductoEnLinea(i)
-                                + " cantidad " + unaCompra.obtenerCantidadEnLinea(i));
+                    } while (opcionKiosco != 0);
+                    break;
+                case 19:
+                    System.out.println("\n--- Arreglo Roedor[] (polimorfismo) ---");
+                    Roedor[] roedores = {
+                        new Raton(),
+                        new Gerbil(),
+                        new Hamster()
+                    };
+                    for (int i = 0; i < roedores.length; i++) {
+                        Roedor r = roedores[i];
+                        System.out.println("\n[" + (i + 1) + "] " + r.getClass().getSimpleName()
+                                + " — getEspecie(): " + r.getEspecie());
+                        System.out.println("Llamadas desde referencia Roedor:");
+                        r.correr();
+                        r.comer();
+                        r.dormir();
                     }
                     break;
                 case 0:

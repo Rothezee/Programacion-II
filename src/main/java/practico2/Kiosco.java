@@ -12,7 +12,50 @@ import java.util.ArrayList;
  * @author Usuario
  */
 public class Kiosco {
-    List<Compra> compras = new ArrayList<>();
+    
+    /*---- Atributos ----*/
+    private List<Compra> compras = new ArrayList<>();
+    private List<Producto> productos = new ArrayList<>();
+    private List<Cliente2> clientes = new ArrayList<>();
     
     
+    
+    /*---- Metodos ----*/
+    public void agregarCompra(Compra e){
+        compras.add(e);
+    }
+    
+    public void agregarProducto(Producto e){
+        productos.add(e);
+    }
+    
+    public void agregarCliente(Cliente2 e){
+        clientes.add(e);
+    }
+    
+    public List<Cliente2> getClientes() {
+        return this.clientes;
+    }
+    
+    public Cliente2 getClientes(int id){
+        for (Cliente2 cliente : clientes) {
+            if (cliente.getDNI() == id) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    public Producto getProducto(int id){
+        for (Producto producto : productos) {
+            if (producto.getIDProducto() == id) {
+                return producto;
+            }
+        }
+        return null;
+    }
+
+    public void borrarCliente(Cliente2 e){
+        clientes.remove(e);
+    }
 }

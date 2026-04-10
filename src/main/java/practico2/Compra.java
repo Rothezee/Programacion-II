@@ -35,4 +35,8 @@ public class Compra {
     public void agregarProducto(int idProducto) {
         this.agregarProducto(idProducto, 1);
     }
+    
+    public void mostrarCompra(){
+        System.out.println("cliente   " + this.idCliente + "\n productos    " + this.productos);
+    }
 }
