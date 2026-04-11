@@ -211,26 +211,43 @@ public class Main {
                                 Producto producto = new Producto(id, Nombre, precio);
                                 maxi.agregarProducto(producto);
                                 break;
-
+                            
                             case 3:
+                                System.out.println("Cliente de la compra");
+                                for(Cliente2 cli : maxi.getClientes()){
+                                    System.out.println(cli.getNombre() + " - " + cli.getDNI());
+                                }
+                                id = leer.nextInt();
+                                
+                                for(Producto prod : maxi.getProductos()){
+                                    System.out.println(prod.getNombre() + " - " + prod.getId() + " - " + prod.getPrecio());
+                                }
+
+                                do{
+                                    System.out.println("ID Producto a agragar a la compra: ");
+                                    id = leer.nextInt();
+                                }while(id != -1);
+                                                           
+                                break;
+                            case 4:
                                 System.out.println("==================================");
                                 System.out.println("============  CLIENTES ===========");
                                 System.out.println("==================================");
                                 for (Cliente2 cli : maxi.getClientes()) {
                                     System.out.println(cli.getNombre() + " - " + cli.getDNI());
                                 }
+                                
+                                System.out.println("Elegi el id a borrar:");
+                                id = leer.nextInt();
+                                maxi.borrarCliente(id);
+
                                 System.out.println("==================================");
-                                System.out.println("Elegir Cliente: ");
-                                int idCliente = leer.nextInt();
-                                leer.nextLine();
-                                Cliente2 cli = maxi.getClientes(idCliente);
-                                if (cli != null) {
-                                    System.out.println("Cliente encontrado: " + cli.getNombre());
-                                    maxi.borrarCliente(cli);
-                                    System.out.println("Cliente borrado correctamente");
-                                } else {
-                                    System.out.println("Cliente no encontrado");
+                                System.out.println("=======  Lista Actualizada =======");
+                                System.out.println("==================================");
+                                for (Cliente2 cli : maxi.getClientes()) {
+                                    System.out.println(cli.getNombre() + " - " + cli.getDNI());
                                 }
+
                                 break;
                             case 0:
                                 break;
