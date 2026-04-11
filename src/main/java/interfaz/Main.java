@@ -213,6 +213,7 @@ public class Main {
                                 break;
                             
                             case 3:
+                                
                                 System.out.println("Cliente de la compra");
                                 for(Cliente2 cli : maxi.getClientes()){
                                     System.out.println(cli.getNombre() + " - " + cli.getDNI());
@@ -222,12 +223,15 @@ public class Main {
                                 for(Producto prod : maxi.getProductos()){
                                     System.out.println(prod.getNombre() + " - " + prod.getId() + " - " + prod.getPrecio());
                                 }
-
+                                maxi.agregarCompra(new Compra());
                                 do{
                                     System.out.println("ID Producto a agragar a la compra: ");
                                     id = leer.nextInt();
-                                }while(id != -1);
-                                                           
+                                }while(id != -1);    
+                                
+                                
+                                System.out.println("Resumen de Compra: ");
+                                System.out.println("");
                                 break;
                             case 4:
                                 System.out.println("==================================");
