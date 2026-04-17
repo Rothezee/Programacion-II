@@ -13,8 +13,12 @@ import java.util.List;
  */
 public class Estudiante extends Persona {
     private int numLegajo;
-    private List<String> materiaAp;
+    private List<String> materiaAp = new ArrayList<>();
     private List<String> materiaDesAp = new ArrayList<>();
+    
+    public Estudiante(){
+        super();
+    }
     
     public void setNumLegajo(int e){
         this.numLegajo = e;
@@ -24,8 +28,11 @@ public class Estudiante extends Persona {
         materiaAp.add(e);
     }
     
-    public void eliminarMateria(String e){
+    public void eliminarMateriaAp(String e){
         materiaAp.removeIf(m -> m.equalsIgnoreCase(e));
     }
-
+    
+    public void eliminarMateriaDesAp(String e){
+        materiaDesAp.removeIf(m -> m.equalsIgnoreCase(e));
+    }
 }

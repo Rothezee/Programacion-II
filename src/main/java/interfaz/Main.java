@@ -8,7 +8,7 @@ import practico1.Conjunto;
 import practico1.Conversor;
 import practico1.FechaUtil;
 import practico1.PracticoTeoria;
-import practico1.Persona;
+//import practico1.Persona;
 import practico1.SerieUtil;
 import practico1.Saluda;
 import practico1.Temperatura;
@@ -24,6 +24,10 @@ import practico2.Raton;
 import practico2.Gerbil;
 import practico2.Hamster;
 import practico2.Compra;
+import practico3.Estudiante;
+import practico3.Persona;
+import practico3.Profesor;
+
 
 public class Main {
 

@@ -8,7 +8,7 @@ package practico3;
  *
  * @author Usuario
  */
-public class Persona {
+public abstract class Persona {
     private int dni;
     private String nombre;
     private String apellido;

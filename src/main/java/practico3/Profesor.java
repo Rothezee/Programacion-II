@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package practico3;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,8 +12,33 @@ import java.util.List;
  */
 public class Profesor extends Persona{
     private int id;
-    private List<String> MateriasDict;
+    private List<String> MateriasDict = new ArrayList<>();
     
+    public Profesor(){
+        super();
+    }
     
+    public int getId(){
+        return this.id;
+    }
     
+    public void setId(int e){
+        this.id = e;
+    }
+    
+    public void agregarMateria(String e){
+        this.MateriasDict.add(e);
+    }
+    
+    public void eliminarMateria(String e){
+        this.MateriasDict.removeIf(m -> m.equalsIgnoreCase(e));
+    }
+    
+    public void eliminarPrimeraMateria(){
+        this.MateriasDict.removeFirst();
+    }
+    
+    public void eliminarUltimaMateria(){
+        this.MateriasDict.removeLast();
+    }
 }
