@@ -23,6 +23,7 @@ import practico2.Roedor;
 import practico2.Raton;
 import practico2.Gerbil;
 import practico2.Hamster;
+import practico2.Compra;
 
 public class Main {
 

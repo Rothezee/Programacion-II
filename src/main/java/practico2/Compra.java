@@ -21,6 +21,10 @@ public class Compra {
         this.productos = new HashMap<>();
     }
 
+    public Compra() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     // Método principal: Maneja la lógica de suma
     public void agregarProducto(int idProducto, int cantidad) {
         // getOrDefault es clave: si el producto ya estaba, suma a la cantidad vieja.
