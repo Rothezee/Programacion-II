@@ -8,13 +8,13 @@ package practico3;
  *
  * @author Usuario
  */
-public abstract class Persona {
+public abstract class PersonA {
     private int dni;
     private String nombre;
     private String apellido;
     private String direccion;
     
-    public Persona(){
+    public PersonA(){
     
     }
     
@@ -34,9 +34,6 @@ public abstract class Persona {
     public void setDireccion(String e){
         this.direccion = e;
     }
-        
-       
-    
     
     public int getDni(){
         return this.dni;
@@ -53,4 +50,12 @@ public abstract class Persona {
     public String getDireccion(){
         return this.direccion;
     }
+    
+    public void mostrarPersona(){
+        System.out.println("id:" + this.dni);
+        System.out.println("nombre:" + this.nombre);
+        System.out.println("Apellido:" + this.apellido);
+        System.out.println("Direccion:" + this.direccion);
+    }
+    
 }

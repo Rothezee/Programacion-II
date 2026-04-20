@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Usuario
  */
-public class Profesor extends Persona{
+public class Profesor extends PersonA{
     private int id;
     private List<String> MateriasDict = new ArrayList<>();
     
@@ -40,5 +40,10 @@ public class Profesor extends Persona{
     
     public void eliminarUltimaMateria(){
         this.MateriasDict.removeLast();
+    }
+    
+    public void mostrar(){
+        super.mostrarPersona();
+        System.out.println("Materias:" + this.MateriasDict);
     }
 }

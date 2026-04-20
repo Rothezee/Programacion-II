@@ -8,7 +8,7 @@ import practico1.Conjunto;
 import practico1.Conversor;
 import practico1.FechaUtil;
 import practico1.PracticoTeoria;
-//import practico1.Persona;
+import practico1.Persona;
 import practico1.SerieUtil;
 import practico1.Saluda;
 import practico1.Temperatura;
@@ -25,7 +25,7 @@ import practico2.Gerbil;
 import practico2.Hamster;
 import practico2.Compra;
 import practico3.Estudiante;
-import practico3.Persona;
+import practico3.PersonA;
 import practico3.Profesor;
 
 
@@ -282,6 +282,16 @@ public class Main {
                         r.dormir();
                     }
                     break;
+                    
+                case 20:
+                    PersonA[] personas = new PersonA[100];
+                    personas[0] = new Profesor();
+                    personas[1] = new Estudiante();
+                    
+                    for(int i = 0; i == personas.length -1; i++){
+                        personas[i].mostrarPersona();  
+                    }
+                    
                 case 0:
                     System.out.println("Saliendo...");
                     break;
@@ -291,5 +301,8 @@ public class Main {
         } while (opcion != 0);
 
         leer.close();
+    }
+    
+    private void mostrarArreglo(PersonA[] a){
     }
 }

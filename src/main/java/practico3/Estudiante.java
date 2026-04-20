@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Usuario
  */
-public class Estudiante extends Persona {
+public class Estudiante extends PersonA {
     private int numLegajo;
     private List<String> materiaAp = new ArrayList<>();
     private List<String> materiaDesAp = new ArrayList<>();
@@ -34,5 +34,11 @@ public class Estudiante extends Persona {
     
     public void eliminarMateriaDesAp(String e){
         materiaDesAp.removeIf(m -> m.equalsIgnoreCase(e));
+    }
+    
+    public void mostrar(){
+        super.mostrarPersona();
+        System.out.println("Materias Aprobadas: " + this.materiaAp);
+        System.out.println("Materias Desaprobadas: " + this.materiaDesAp);
     }
 }
