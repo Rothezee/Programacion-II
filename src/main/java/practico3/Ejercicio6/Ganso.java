@@ -4,19 +4,25 @@
  */
 package practico3.Ejercicio6;
 
+import practico3.ejercicio7.Sonido;
+
 /**
  *
  * @author Usuario
  */
-public class Ganso extends Ave{
+public class Ganso extends Ave implements Sonido{
 
-    public Ganso(){
-        super(true);
+    public Ganso(String n, int e){
+        super(n, e, true);
     }
     
     public void mostrar(){
         System.out.println("nombre:" + super.getNombre());
         System.out.println("edad:" + super.getEdad());
         System.out.println("Puede nadar?" + super.getNada());
+    }
+    
+    public void devolverSonido(){
+        System.out.println("graznar");
     }
 }

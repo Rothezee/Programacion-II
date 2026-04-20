@@ -24,9 +24,16 @@ import practico2.Raton;
 import practico2.Gerbil;
 import practico2.Hamster;
 import practico2.Compra;
+import practico3.Ejercicio6.Ave;
+import practico3.Ejercicio6.Buho;
+import practico3.Ejercicio6.Ganso;
 import practico3.Estudiante;
 import practico3.PersonA;
 import practico3.Profesor;
+import practico3.ejercicio8.Ecualizacion;
+import practico3.ejercicio8.Jazz;
+import practico3.ejercicio8.Pop;
+import practico3.ejercicio8.Rock;
 
 
 public class Main {
@@ -291,6 +298,47 @@ public class Main {
                     for(int i = 0; i == personas.length -1; i++){
                         personas[i].mostrar();  
                     }
+                    
+                case 21:
+                    Ave[] aves = new Ave[10];
+                    
+                    for(int i = 0; i == 9; i++){
+                        if(i % 2 == 0){
+                            aves[i] = new Ganso("juan", 10);
+                        }else{
+                            aves[i] = new Buho("pedro", 5);
+                        }
+                    }
+                    for(Ave ave : aves){
+                        if(ave != null){
+                            ave.mostrar();
+                            ave.devolverSonido();
+                        }
+                    }
+                    
+                    break;
+                    
+                case 22:
+                    Ecualizacion[] ecu = new Ecualizacion[10];
+                    
+                    for(int i = 0; i == 9; i++){
+                        if (i % 2 == 0){
+                            ecu[i] = new Rock();              
+                        }else if(i % 3 == 0){
+                            ecu[i] = new Jazz();
+                        }else{
+                            ecu[i] = new Pop();
+                        }
+                    }
+                    
+                    for(Ecualizacion ec : ecu){
+                        System.out.println("Graves: " + ec.getGraves() + "\n Agudos: " + ec.getAgudos());                        
+                    }
+                    
+                    break;
+                    
+                  
+                    
                     
                 case 0:
                     System.out.println("Saliendo...");

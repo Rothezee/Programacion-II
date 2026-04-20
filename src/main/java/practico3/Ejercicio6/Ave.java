@@ -4,17 +4,21 @@
  */
 package practico3.Ejercicio6;
 
+import practico3.ejercicio7.Sonido;
+
 /**
  *
  * @author Usuario
  */
-public abstract class Ave {
+public abstract class Ave implements Sonido{
     private String nombre;
     private int edad;
     private boolean nada;
     
-    public Ave(boolean nada){
+    public Ave(String n , int e, boolean nada){
         this.nada = nada;
+        this.edad = e;
+        this.nombre = n;
     }
     
     public void setNombre(String n){

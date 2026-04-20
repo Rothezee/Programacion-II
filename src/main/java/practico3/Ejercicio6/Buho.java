@@ -10,13 +10,18 @@ package practico3.Ejercicio6;
  */
 public class Buho extends Ave{
     
-    public Buho(){
-        super(false);
+    public Buho(String n , int e){
+        super(n, e, false);
     }
     
+    @Override
     public void mostrar(){
         System.out.println("nombre:" + super.getNombre());
         System.out.println("edad:" + super.getEdad());
         System.out.println("Puede nadar?" + super.getNada());
+    }
+    
+    public void devolverSonido(){
+        System.out.println("ulular");
     }
 }
