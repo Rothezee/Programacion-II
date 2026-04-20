@@ -51,11 +51,5 @@ public abstract class PersonA {
         return this.direccion;
     }
     
-    public void mostrarPersona(){
-        System.out.println("id:" + this.dni);
-        System.out.println("nombre:" + this.nombre);
-        System.out.println("Apellido:" + this.apellido);
-        System.out.println("Direccion:" + this.direccion);
-    }
-    
+    public abstract void mostrar();    
 }

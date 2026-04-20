@@ -43,7 +43,6 @@ public class Profesor extends PersonA{
     }
     
     public void mostrar(){
-        super.mostrarPersona();
         System.out.println("Materias:" + this.MateriasDict);
     }
 }

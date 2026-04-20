@@ -289,7 +289,7 @@ public class Main {
                     personas[1] = new Estudiante();
                     
                     for(int i = 0; i == personas.length -1; i++){
-                        personas[i].mostrarPersona();  
+                        personas[i].mostrar();  
                     }
                     
                 case 0:
@@ -303,6 +303,4 @@ public class Main {
         leer.close();
     }
     
-    private void mostrarArreglo(PersonA[] a){
-    }
 }

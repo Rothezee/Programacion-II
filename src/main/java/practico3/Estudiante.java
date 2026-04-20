@@ -37,7 +37,6 @@ public class Estudiante extends PersonA {
     }
     
     public void mostrar(){
-        super.mostrarPersona();
         System.out.println("Materias Aprobadas: " + this.materiaAp);
         System.out.println("Materias Desaprobadas: " + this.materiaDesAp);
     }
