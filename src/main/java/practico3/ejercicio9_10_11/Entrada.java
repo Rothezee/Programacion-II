@@ -22,10 +22,6 @@ public class Entrada extends Alimento{
         elementos.put("Empanada", 50);
         elementos.put("Copetin", elementos.get("Pasta") + elementos.get("Fiambre") + (elementos.get("Empanada") * 2));
     }
-    
-    public void devovlerCalorias(String n){
-       
-    }
 
     @Override
     public void devolverCalorias(String n) {

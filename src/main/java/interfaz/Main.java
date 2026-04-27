@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.io.IOException;
 import java.util.Scanner;
 import practico1.Banco;
 import practico1.Cheque;
@@ -34,11 +35,11 @@ import practico3.ejercicio8.Ecualizacion;
 import practico3.ejercicio8.Jazz;
 import practico3.ejercicio8.Pop;
 import practico3.ejercicio8.Rock;
-
+import practico4.ControladorDeArchivo;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner leer = new Scanner(System.in);
         int opcion;
 
@@ -337,7 +338,30 @@ public class Main {
                     
                     break;
                     
-                  
+                case 23:
+                    break;
+                case 24:
+                    Scanner leer2 = new Scanner(System.in);
+                    try{
+                        System.out.println("crear archivo");
+                        String nombreArch;
+                        nombreArch = leer2.nextLine();
+                        ControladorDeArchivo arch = new ControladorDeArchivo();
+
+
+                        arch.crearArchivo(nombreArch);
+
+                        if(arch.existe(nombreArch)){
+                            System.out.println("ARCHIVO CREADO EXITOSAMENTE");
+                        }
+
+                        System.out.println("Escribir en archivo:");
+                        String Frase = leer.nextLine();
+                        arch.escribirArchivo(Frase, nombreArch);
+                    }catch(IOException e){
+                        System.out.println("Error");
+                    }
+                    
                     
                     
                 case 0:

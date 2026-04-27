@@ -4,17 +4,12 @@
  */
 package practico3.ejercicio9_10_11;
 
-import java.util.Scanner;
 /**
  *
  * @author usuario
  */
 public interface Menu {
-    Scanner leer = new Scanner;
     
-    public void mostrarMenu(){
-        System.out.println("===========================");
-        System.out.println("1. Plato principal: ");
-        
-    }
+    public void mostrarMenu();
+    public void exceso(); // devuelve cuando se excede de  las calorias
 }
