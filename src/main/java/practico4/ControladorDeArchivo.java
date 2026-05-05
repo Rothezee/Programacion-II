@@ -52,7 +52,6 @@ public class ControladorDeArchivo {
             FileWriter Warchivo = new FileWriter(archivo, true);
             BufferedWriter Bwarchivo = new BufferedWriter(Warchivo);
             Bwarchivo.append(f);
-
         }
     }
 }
